@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trekking Blog</title>
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Custom styles for better aesthetics -->
+    <style>
+        .main-content, .blog-post-detail {
+            padding-top: 2rem;
+            padding-bottom: 4rem;
+        }
+
+        .social-icon {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+            transition: color 0.3s ease;
+        }
+        .social-icon:hover {
+            color: #ffffff;
+        }
+
+        .card {
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-img-top {
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        img {
+            width: 100%;
+            max-width: 400px; /* Adjust as needed */
+            height: 220px;    /* Adjust as needed */
+            object-fit: cover;
+            border-radius: 1rem;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Responsive Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Trekker's Path</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#" onclick="showSection('main-blog')">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Forts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Section - Initially visible -->
+    <main id="main-blog" class="main-content">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-5">
+                <h1 class="text-center mb-0">Trekking Adventures: Forts</h1>
+                <!-- "Post Your Blog" button -->
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#postBlogModal">Post Your Blog</button>
+            </div>
+
+            <!-- Blog post grid -->
+            <div class="row g-4">
+                <!-- Blog Post Card 1: Harishchandragad -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <img src="harishchandragad1-1686645298.jpg" class="card-img-top" alt="Konkan Kada cliff at Harishchandragad fort">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Harishchandragad: The Konkan Kada Trek</h5>
+                            <p class="card-text">A guide to the challenging but rewarding trek to Harishchandragad, exploring the famous Konkan Kada cliff and ancient caves.</p>
+                            <button class="btn btn-primary mt-auto" onclick="showSection('harishchandragad')">Read More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Post Card 2: Sinhgad -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <img src="sinhagad top view.jpg" class="card-img-top" alt="Pune Darwaja gate at Sinhgad fort">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Conquering Sinhgad: A Local's Guide</h5>
+                            <p class="card-text">Discover the history and beauty of Sinhgad fort, a perfect day trek near Pune with stunning views and delicious local food.</p>
+                            <button class="btn btn-primary mt-auto" onclick="showSection('sinhgad')">Read More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Post Card 3: Mewar Forts -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <img src="fortified-wall-chittorgarh-fort-of-the-hindu-rajput-princes-chittorgarh-DGYFCW.jpg" class="card-img-top" alt="Tower of Victory at Chittorgarh Fort, Mewar">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">The Grandeur of Mewar Forts</h5>
+                            <p class="card-text">An epic journey through the historic forts of the Mewar region, detailing the best routes and cultural significance.</p>
+                            <button class="btn btn-primary mt-auto" onclick="showSection('mewar-forts')">Read More</button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </main>
+
+    <!-- Blog Post Detail Sections - Initially hidden -->
+    <!-- Harishchandragad Detail -->
+    <section id="harishchandragad" class="blog-post-detail container d-none">
+        <button class="btn btn-secondary mb-4" onclick="showSection('main-blog')">← Back to Blogs</button>
+        <div class="bg-white rounded-xl shadow-lg p-5">
+            <h1 class="text-4xl font-extrabold text-gray-900 mb-4">Harishchandragad: The Konkan Kada Trek</h1>
+            <img src="harishchandragad1-1686645298.jpg" class="w-full rounded-lg object-cover mb-4" alt="Konkan Kada cliff at Harishchandragad fort">
+            <p class="text-lg text-gray-700 leading-relaxed mb-4">The trek to Harishchandragad is an adventure of a lifetime, especially if you take the route to the famous Konkan Kada. This massive, semi-circular cliff hangs precariously over the valley, offering breathtaking panoramic views that are simply unforgettable. The trail takes you through dense forests and over rocky terrain, challenging you every step of the way.</p>
+            <img src="OIP (1).webp" class="w-full rounded-lg object-cover mb-4" alt="Sunrise view from Harishchandragad fort">
+            <p class="text-lg text-gray-700 leading-relaxed mb-4">Beyond the thrill of the trek, Harishchandragad is steeped in history. The fort itself dates back to the 6th century, with many of its caves and temples carved out in the 11th century. The Kedareshwar Cave, with its ancient Shiva Linga, is a must-visit spot that adds a spiritual element to the journey. Local stories tell of great sages who meditated here, their presence still felt in the peaceful atmosphere. It is said that there were four pillars around the Shiva Linga, representing the four 'yugas' or eras of life on Earth. Only one remains today, which local legend says will break at the end of the current 'Kali Yuga' to mark the world's end.</p>
+            <img src="DSCN9584-compressed.jpg" class="w-full rounded-lg object-cover mb-4" alt="Taramati Peak at Harishchandragad fort">
+            <p class="text-lg text-gray-700 leading-relaxed mb-4">The sunrise from Taramati Peak is an experience you will not soon forget, with the golden light painting the sky and illuminating the Western Ghats. This trek is a true test of endurance and a beautiful way to connect with both nature and history.</p>
+
+            <!-- Review/Suggestion Section -->
+            <div class="mt-5 pt-4 border-top border-gray-200">
+                <h2 class="h4">Your Review or Suggestion</h2>
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#reviewModal">Submit Review</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sinhgad Detail -->
+    <section id="sinhgad" class="blog-post-detail container d-none">
+        <button class="btn btn-secondary mb-4" onclick="showSection('main-blog')">← Back to Blogs</button>
+        <div class="bg-white rounded-xl shadow-lg p-5">
+            <h1 class="text-4xl font-extrabold text-gray-900 mb-4">Conquering Sinhgad: A Local's Guide</h1>
+            <img src="cc.jpg" class="w-full rounded-lg object-cover mb-4" alt="Pune Darwaja gate at Sinhgad fort">
+            <p class="text-lg text-gray-700 leading-relaxed mb-4">Located southwest of Pune, Sinhgad fort is a beloved trekking destination for both locals and tourists. The trek is relatively short and easy, making it perfect for a morning or afternoon adventure. The path is well-worn, leading you up a winding trail with beautiful views of the surrounding hills. Once at the top, you'll find a lively fort with food stalls selling local delicacies like 'pithla-bhakri' and 'zunka-bhakar.'</p>
+            <img src="OIP.webp" class="w-full rounded-lg object-cover mb-4" alt="Kalyan Darwaza gate at Sinhgad fort">
+            <p class="text-lg text-gray-700 leading-relaxed mb-4">The fort is rich with history, famously known for the 'Battle of Sinhagad' in 1670. It was here that Tanaji Malusare, a brave general of Chhatrapati Shivaji Maharaj, sacrificed his life to recapture the fort. It's said that upon hearing of his death, Shivaji Maharaj said, “Gad ala, pan Sinha gela,” which means, “The fort is captured, but the lion is lost.” It is from this legendary quote that the fort got its name, 'Sinhagad' (The Fort of the Lion). The memorials of Tanaji Malusare and Rajaram I stand as a testament to their bravery.</p>
+            <img src="sinhagad top view.jpg" class="w-full rounded-lg object-cover mb-4" alt="Panoramic view from Sinhgad fort">
+            <p class="text-lg text-gray-700 leading-relaxed mb-4">The panoramic view from the top is simply spectacular. You can see the Khadakwasla Dam and the cityscape of Pune from different points. It's a place where history and nature merge to provide a truly inspiring experience.</p>
+            
+            <!-- Review/Suggestion Section -->
+            <div class="mt-5 pt-4 border-top border-gray-200">
+                <h2 class="h4">Your Review or Suggestion</h2>
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#reviewModal">Submit Review</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mewar Forts Detail -->
+    <section id="mewar-forts" class="blog-post-detail container d-none">
+        <button class="btn btn-secondary mb-4" onclick="showSection('main-blog')">← Back to Blogs</button>
+        <div class="bg-white rounded-xl shadow-lg p-5">
+            <h1 class="text-4xl font-extrabold text-gray-900 mb-4">The Grandeur of Mewar Forts</h1>
+            <img src="kumbhal-fort-great-wall-india-mewar-fortress-275957834.webp" class="w-full rounded-lg object-cover mb-4" alt="Tower of Victory at Chittorgarh Fort, Mewar">
+            <p class="text-lg text-gray-700 leading-relaxed mb-4">The forts of the Mewar region in Rajasthan are not just stone structures; they are living testaments to a glorious past filled with tales of courage, honor, and sacrifice. The most iconic of these is the Chittorgarh Fort, a UNESCO World Heritage Site and one of the largest forts in India. Sprawling over a massive hill, it is a magnificent symbol of Rajput pride.</p>
+            <img src="GettyImages-500073087-5ba09b5446e0fb0050f96f8b.jpg" class="w-full rounded-lg object-cover mb-4" alt="Panoramic view of Chittorgarh Fort">
+            <p class="text-lg text-gray-700 leading-relaxed mb-4">The fort's history is full of dramatic stories, including three major sieges where the Rajput women committed 'Jauhar' (mass self-immolation) to protect their honor. The Vijay Stambh (Tower of Victory) and Kirti Stambh (Tower of Fame) stand tall, their intricate carvings narrating the triumphs of the past. Walking through the palaces of Queen Padmini and Rana Kumbha, you can feel the echoes of a bygone era.</p>
+            <img src="fortified-wall-chittorgarh-fort-of-the-hindu-rajput-princes-chittorgarh-DGYFCW.jpg" class="w-full rounded-lg object-cover mb-4" alt="Gaumukh Reservoir at Chittorgarh Fort">
+            <p class="text-lg text-gray-700 leading-relaxed mb-4">Another gem is the Kumbhalgarh Fort, known for having the second-longest continuous wall after the Great Wall of China. The sheer scale and strategic design of these forts are awe-inspiring. A trek through the Mewar forts is a journey into the heart of Indian history and a profound experience for any traveler.</p>
+            
+            <!-- Review/Suggestion Section -->
+            <div class="mt-5 pt-4 border-top border-gray-200">
+                <h2 class="h4">Your Review or Suggestion</h2>
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#reviewModal">Submit Review</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <p class="mb-2">&copy; 2025 Trekker's Path. All Rights Reserved.</p>
+            <div class="d-flex justify-content-center">
+                <a href="#" class="text-white-50 mx-2">
+                    <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path d="M448,209.91a210.06,210.06,0,0,1-23.43,88.54C427.72,379.88,421.32,442,391.24,472.06c-24.83,24.83-62.8,38.16-113.62,39.69C251.3,512.63,225.5,512,224,512c-2.31,0-5.83,0-7.39,0-50.81-.13-92.29-14.49-116.32-38.56a165,165,0,0,1-38.8-118.6C61.32,328.79,64,287.1,64,256c0-30.87-2.68-72.2-8-124.64C48.5,84.15,42.1,21.9,72.18-8.15,96.6-32.55,134.57-45.88,185.39-47.41c25.59-1,51.39-1.63,52.94-1.63,2.31,0,5.83,0,7.39,0,50.81.13,92.29,14.49,116.32,38.56A165,165,0,0,1,384,142.13C386.68,183.62,384,225.33,384,256c0,30.87,2.68,72.2,8,124.64C448,298.11,448,256,448,209.91zM224,384a128,128,0,1,0,0-256,128,128,0,0,0,0,256z"/>
+                    </svg>
+                </a>
+                <a href="#" class="text-white-50 mx-2">
+                    <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path d="M224,192a160,160,0,1,1-160,160A160,160,0,0,1,224,192ZM400,224a176,176,0,1,0-176,176A176,176,0,0,0,400,224ZM288,224a64,64,0,1,1-64,64A64,64,0,0,1,288,224Z"/>
+                    </svg>
+                </a>
+                <a href="#" class="text-white-50 mx-2">
+                    <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path d="M224,192a160,160,0,1,1-160,160A160,160,0,0,1,224,192ZM400,224a176,176,0,1,0-176,176A176,176,0,0,0,400,224ZM288,224a64,64,0,1,1-64,64A64,64,0,0,1,288,224Z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Post Your Blog Modal -->
+<div class="modal fade" id="postBlogModal" tabindex="-1" aria-labelledby="postBlogModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form class="modal-content" id="postBlogForm">
+      <div class="modal-header">
+        <h5 class="modal-title" id="postBlogModalLabel">Post Your Blog</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <input type="text" class="form-control" id="blogTitle" placeholder="Blog Title" required>
+        </div>
+        <div class="mb-3">
+          <textarea class="form-control" id="blogContent" rows="4" placeholder="Your Blog Content" required></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Submit Blog</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Review/Suggestion Modal (Reusable) -->
+<div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form class="modal-content" id="reviewForm">
+      <div class="modal-header">
+        <h5 class="modal-title" id="reviewModalLabel">Your Review or Suggestion</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <textarea class="form-control" id="reviewText" rows="4" placeholder="Share your thoughts..." required></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-success">Submit Review</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+    <!-- Bootstrap 5 JS and Custom JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        // JavaScript function to show/hide sections
+        function showSection(sectionId) {
+            // Get all sections that have the class 'main-content' or 'blog-post-detail'
+            const sections = document.querySelectorAll('.main-content, .blog-post-detail');
+            
+            // Loop through each section and hide it by adding the 'd-none' class
+            sections.forEach(section => {
+                section.classList.add('d-none');
+            });
+
+            // Find the section that matches the ID passed to the function
+            const activeSection = document.getElementById(sectionId);
+            
+            // Remove the 'd-none' class to make it visible
+            if (activeSection) {
+                activeSection.classList.remove('d-none');
+            }
+        }
+
+        // Handle Post Your Blog form
+        document.getElementById('postBlogForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const title = document.getElementById('blogTitle').value;
+            const content = document.getElementById('blogContent').value;
+            alert('Thank you for posting your blog!\n\nTitle: ' + title + '\nContent: ' + content);
+            this.reset();
+            bootstrap.Modal.getInstance(document.getElementById('postBlogModal')).hide();
+        });
+
+        // Handle Review/Suggestion form
+        document.getElementById('reviewForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const review = document.getElementById('reviewText').value;
+            alert('Thank you for your review!\n\n' + review);
+            this.reset();
+            bootstrap.Modal.getInstance(document.getElementById('reviewModal')).hide();
+        });
+    </script>
+</body>
+</html>
